@@ -1,4 +1,4 @@
-### Alternativa para modelagem da tabela projects
+### Alternativa para modelagem da coleção projects
 
 ```
 projects:[{
