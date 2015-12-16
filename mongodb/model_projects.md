@@ -1,4 +1,7 @@
-projects:{
+### Alternativa para modelagem da tabela projects
+
+```
+projects:[{
     name,
     description,
     date_begin,
@@ -73,9 +76,11 @@ projects:{
     project_members: [
         {
             type,
-            name,
+            user_id,
             notify
         }
     ],
         
-}
+}]
+
+```

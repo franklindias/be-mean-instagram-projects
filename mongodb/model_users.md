@@ -1,7 +1,6 @@
 ### Alternativa para modelagem da tabela usuário
 
-```json
-
+```
 users:[{  
 	name,  
 	bio,  
