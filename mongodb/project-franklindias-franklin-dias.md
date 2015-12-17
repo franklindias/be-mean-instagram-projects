@@ -8,8 +8,11 @@ Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo
 
 ## Qual a modelagem da sua coleção de 'users'?
 
+[USERS - Em Andamento] (https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/model_users.md)
+
 ## Qual a modelagem da sua coleção de 'projects'?
 
+[PROJECTS - Em Andamento] (https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/model_projects.md)
 
 ## Create - cadastro
 
