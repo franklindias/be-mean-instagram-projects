@@ -1,19 +1,19 @@
-### Alternativa para modelagem da tabela usuário
+### Alternativa para modelagem da coleção users
 
 ```
 users:[{  
-	name,  
-	bio,  
-	email,  
-	date_register,  
-	avatar_path,
+	name:String,  
+	bio:String,  
+	email:String,  
+	date_register:Date,  
+	avatar_path:String,
     auth: {  
-		username,  
-		password,  
-		last_access,  
-		online,  
-		disable,  
-		hash_token  
+		username:String,  
+		password:String,  
+		last_access:String,  
+		online:Boolean,  
+		disable:Boolean,  
+		hash_token:String  
 	}
 }]
 
