@@ -1,6 +1,6 @@
 # MongoDB - Projeto Final
-    * **Autor:** Franklin Dias
-    * **Data:** 16/12/2015
+- **Autor:** Franklin Dias
+- **Data:** 16/12/2015
 
 ## Para qual sistema você usaria o MogoDB (diferente desse)?
 Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo de sistema, entretato é indicado àqueles que necessitam de uma interação mais rápida entre os dados e a aplicação não importando a replicação de dado, o que acontece normalmente em aplicações 'real time' e nas aplicações que demadam muito fluxo de dados. Sendo assim, além de várias outras aplicações, eu poderia usar o MongoDB tranquilamente em um sistema de E-commerce, por exemplo. Um outro exemplo que poderíamos utilizar banco de dados NoSql são as redes socias, porém para estes é indicado utilizar um banco baseado em Grafos, como o Neo4j.
