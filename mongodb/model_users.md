@@ -1,7 +1,7 @@
 ### Alternativa para modelagem da coleção users
 
 ```
-users:[{  
+{  
 	name:String,  
 	bio:String,  
 	email:String,  
@@ -15,6 +15,6 @@ users:[{
 		disable:Boolean,  
 		hash_token:String  
 	}
-}]
+}
 
 ```

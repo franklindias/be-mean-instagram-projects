@@ -1,67 +1,38 @@
 ### Alternativa para modelagem da coleção projects
 
 ```
-projects:[{
-    name:String,
-    description:String,
-    date_begin:Date,
-    date_dream:Date,
-    date_end:Date,
-    visible:Boolean,
-    realocate:Boolean,
-    expired:Boolean,
-    visualizable_mod:String,
+{
+    name: String,
+    description: String,
+    date_begin: Date,
+    date_dream: Date,
+    date_end: Date,
+    visible: Boolean,
+    realocate: Boolean,
+    expired: Boolean,
+    visualizable_mod: String,
     goal:[{
-            name:String,
-            description:String,
-            date_begin:Date,
-            date_dream:Date,
-            date_end:Date,
-            realocate:Boolean,
-            expired:Boolean,
-            goal_tags:[],
-            activity:[{
-                    name:String,
-                    description:String,
-                    date_begin:Date,
-                    date_dream:Date,
-                    date_end:Date,
-                    realocate:Boolean,
-                    expired:Boolean,
-                    comment:[{
-                            text:String,
-                            date:Date,
-                            file:[{
-                                    path:Boolean,
-                                    wight:Decimal,
-                                    name_member:String
-                                }],
-                            activity_comment_members:[{
-                                    type:String,
-                                    name_member:String,
-                                    notify:Boolean
-                                }]
-                        }],
-                    activity_tags:[],
-                    activity_members:[{
-                                    type:String,
-                                    name:String,
-                                    notify:Boolean
-                                }],
-                    activity_historic:[{
-                            date_realocate:Date
-                        }]
-                }],
+            name: String,
+            description: String,
+            date_begin: Date,
+            date_dream: Date,
+            date_end: Date,
+            realocate: Boolean,
+            expired: Boolean,
+            goal_tags: [],
+            activities:[{
+                activity_id: String
+            }]
             goal_historic:[{
-                    date_realocate:Date
-                }]
+                date_realocate:Date
+            }],
         }],
     project_tags: [],
     project_members: [{
             type:String,
             user:String,
             notify:Boolean
-        }]   
-}]
+    }]   
+}
 
 ```
