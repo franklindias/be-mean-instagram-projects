@@ -1,6 +1,6 @@
 ### Alternativa para modelagem da coleção projects
 
-```
+```js
 {
     name: String,
     description: String,

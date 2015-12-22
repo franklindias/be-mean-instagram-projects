@@ -1,6 +1,6 @@
 ### Alternativa para modelagem da coleção users
 
-```
+```js
 {  
 	name:String,  
 	bio:String,  

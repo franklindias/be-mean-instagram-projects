@@ -16,6 +16,8 @@ Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo
 
 ## Qual a modelagem da sua coleção retirada de 'projects'?
 
+[ACTIVITIES - Em Andamento] (https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/model_activities.md)
+
 ## Create - cadastro
 
 1. Cadastre 10 usuários diferentes.

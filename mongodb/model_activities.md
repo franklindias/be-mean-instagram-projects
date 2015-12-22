@@ -1,6 +1,6 @@
 ### Alternativa para modelagem da coleção activities
 
-```
+```js
 {
     name: String,
     description: String,
