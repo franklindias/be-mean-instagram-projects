@@ -74,9 +74,9 @@ localhost(mongod-2.6.11) project> db.users.find()
 Fetched 1 record(s) in 3ms
 ```
 
-Em seguida criei um arquivo json contendo os outros 9 usuários necessários e fiz a importação.
+Em seguida criei um arquivo json contendo os outros 9 usuários necessários e fiz a importação: [users_insert.json](https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/users_insert.json).
 
-[users_insert.json]()
+
 
 ```js
 mongoimport --db project --collection users --file users_insert.json
@@ -86,15 +86,16 @@ connected to: 127.0.0.1
 
 > 2 - Cadastre 5 projetos diferentes.
 
-Para facilitar a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades.
+Para facilitar a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades [activities_insert.json](https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/activities_insert.json).
 
-[activities_insert.json]()
 
 ```js
 mongoimport --db project --collection activities --file data/activities_insert.json 
 connected to: 127.0.0.1
 2015-12-25T21:25:26.528-0200 imported 10 objects
 ```
+
+Em seguida, criei um arquivo json com todos os projetos, 'relacionando' seus respectivos usuários e atividades já cadastradas: [projects_insert.json] (https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/projects_insert.json).
 
     - cada um com 5 membros, sempre diferentes dentro dos projetos;
     - cada um com pelo menos 3 tags diferentes;
