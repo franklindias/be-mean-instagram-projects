@@ -21,6 +21,61 @@ Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo
 ## Create - cadastro
 
 1. Cadastre 10 usuários diferentes.
+
+Insirindo um usuário manualmente:
+
+```js
+localhost(mongod-2.6.11) project> var user = {  
+	"name":"Franklin Dias",  
+	"bio":"bio de franklin",  
+	"email":"franklindias99@gmail.com",  
+	"date_register":ISODate(),  
+	"avatar_path":"",
+    "auth": {  
+		"username":"franklindias",  
+		"password":"123",  
+		"last_access":ISODate(),  
+		"online":false,  
+		"disable":false,  
+		"hash_token":"202cb962ac59075b964b07152d234b70"  
+	}
+}
+```
+Salvando objeto user
+
+```js
+localhost(mongod-2.6.11) project> db.users.save(user)
+Inserted 1 record(s) in 529ms
+WriteResult({
+  "nInserted": 1
+})
+```
+
+Listando usuário cadastrado
+
+```js
+localhost(mongod-2.6.11) project> db.users.find()
+{
+  "_id": ObjectId("567db311db60e19fa4f7f2bd"),
+  "name": "Franklin Dias",
+  "bio": "bio de franklin",
+  "email": "franklindias99@gmail.com",
+  "date_register": ISODate("2015-12-25T21:16:44.716Z"),
+  "avatar_path": "",
+  "auth": {
+    "username": "franklindias",
+    "password": "123",
+    "last_access": ISODate("2015-12-25T21:16:44.716Z"),
+    "online": false,
+    "disable": false,
+    "hash_token": "202cb962ac59075b964b07152d234b70"
+  }
+}
+Fetched 1 record(s) in 3ms
+```
+
+Em seguida criei um arquivo json contendo os outros 9 usuários necessários e fiz a importação.
+
 2. Cadastre 5 projetos diferentes.
     - cada um com 5 membros, sempre diferentes dentro dos projetos;
     - cada um com pelo menos 3 tags diferentes;
