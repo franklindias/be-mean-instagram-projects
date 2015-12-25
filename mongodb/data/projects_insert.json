@@ -1,0 +1,67 @@
+{
+    "name": "",
+    "description": "",
+    "date_begin": { "$date" : "2015-12-25T19:16:44.716-0200" },
+    "date_dream": null,
+    "date_end": null,
+    "visible": true,
+    "realocate": false,
+    "expired": false,
+    "visualizable_mod": null,
+    "goal":[{
+            "name": "",
+            "description": "",
+            "date_begin": { "$date" : "2015-12-25T19:16:44.716-0200" },
+            "date_dream": null,
+            "date_end": null,
+            "realocate": false,
+            "expired": false,
+            "goal_tags": ["","",""],
+            "activities":[{
+                activity_id: String
+            }]
+            "goal_historic":[{
+                date_realocate:{ "$date" : "2015-12-25T19:16:44.716-0200" },
+            }],
+        }],
+    "project_tags": ["","",""],
+    "project_members": [{
+            "type":String,
+            "user":String,
+            "notify":Boolean
+    }]   
+}
+
+{
+  "_id": ObjectId("567db311db60e19fa4f7f2bd")
+}
+{
+  "_id": ObjectId("567dbff3c2289ba833ee8741")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3ec")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3ed")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3ee")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3ef")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3f0")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3f1")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3f2")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3f3")
+}
+{
+  "_id": ObjectId("567dc0d33035895fd8c5c3f4")
+}

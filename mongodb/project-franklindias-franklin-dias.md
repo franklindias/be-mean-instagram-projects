@@ -20,9 +20,9 @@ Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo
 
 ## Create - cadastro
 
-1. Cadastre 10 usuários diferentes.
+> 1 - Cadastre 10 usuários diferentes.
 
-Insirindo um usuário manualmente:
+Inserindo um usuário manualmente:
 
 ```js
 localhost(mongod-2.6.11) project> var user = {  
@@ -41,7 +41,7 @@ localhost(mongod-2.6.11) project> var user = {
 	}
 }
 ```
-Salvando objeto user
+Salvando objeto user.
 
 ```js
 localhost(mongod-2.6.11) project> db.users.save(user)
@@ -51,7 +51,7 @@ WriteResult({
 })
 ```
 
-Listando usuário cadastrado
+Listando usuário cadastrado.
 
 ```js
 localhost(mongod-2.6.11) project> db.users.find()
@@ -76,7 +76,26 @@ Fetched 1 record(s) in 3ms
 
 Em seguida criei um arquivo json contendo os outros 9 usuários necessários e fiz a importação.
 
-2. Cadastre 5 projetos diferentes.
+[users_insert.json]()
+
+```js
+mongoimport --db project --collection users --file users_insert.json
+connected to: 127.0.0.1
+2015-12-25T20:18:59.199-0200 imported 9 objects
+```
+
+> 2 - Cadastre 5 projetos diferentes.
+
+Para facilitar a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades.
+
+[activities_insert.json]()
+
+```js
+mongoimport --db project --collection activities --file data/activities_insert.json 
+connected to: 127.0.0.1
+2015-12-25T21:25:26.528-0200 imported 10 objects
+```
+
     - cada um com 5 membros, sempre diferentes dentro dos projetos;
     - cada um com pelo menos 3 tags diferentes;
         - escolha 1 *tag* onde deva ficar em 2 projetos;
