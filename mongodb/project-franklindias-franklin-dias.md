@@ -20,7 +20,7 @@ Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo
 
 ## Create - cadastro
 
-### 1 - Cadastre 10 usuários diferentes.
+#### 1 - Cadastre 10 usuários diferentes.
 
 Inserindo um usuário manualmente:
 
@@ -84,7 +84,7 @@ connected to: 127.0.0.1
 2015-12-25T20:18:59.199-0200 imported 9 objects
 ```
 
-### 2 - Cadastre 5 projetos diferentes.
+#### 2 - Cadastre 5 projetos diferentes.
 
 Para facilitar, didaticamente, a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades [activities_insert.json](https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/activities_insert.json).
 
@@ -107,7 +107,7 @@ connected to: 127.0.0.1
 
 ## Retrieve - busca
 
-### 1. Liste as informações dos membros de 1 projeto específico que deve ser buscado pelo seu nome de forma a não ligar para maiúsculas e minúsculas.
+#### 1. Liste as informações dos membros de 1 projeto específico que deve ser buscado pelo seu nome de forma a não ligar para maiúsculas e minúsculas.
 
 Criando o filtro para selecionar o projeto.
 ```js
@@ -215,7 +215,7 @@ localhost(mongod-2.6.11) project> users
 ```
 
 
-### 2. Liste todos os projetos com a tag que você escolheu para os 3 projetos em comum.
+#### 2. Liste todos os projetos com a tag que você escolheu para os 3 projetos em comum.
 
 ```js
 localhost(mongod-2.6.11) project> db.projects.find({project_tags: {$in: [/node/i]}}, {name: 1})
@@ -235,7 +235,7 @@ Fetched 3 record(s) in 3ms
 
 ```
 
-### 3. Liste apenas os nomes de todas as atividades para todos os projetos.
+#### 3. Liste apenas os nomes de todas as atividades para todos os projetos.
 
 ```js
 localhost(mongod-2.6.11) project> db.activities.find({}, {name:1, _id:0})
@@ -272,14 +272,14 @@ localhost(mongod-2.6.11) project> db.activities.find({}, {name:1, _id:0})
 
 ```
 
-### 4. Liste todos os projetos que não possuam uma tag.
+#### 4. Liste todos os projetos que não possuam uma tag.
 
 ```js
 db.projects.find({project_tags: {$size: 0}}) 
 Fetched 0 record(s) in 1ms
 ```
 
-### 5. Liste todos os usuários que não fazem parte do primeiro projeto cadastrado.
+#### 5. Liste todos os usuários que não fazem parte do primeiro projeto cadastrado.
 
 ```js
 localhost(mongod-2.6.11) project> db.projects.find({}, {'name':1,'project_members.user': 1}).skip(1)
@@ -373,7 +373,7 @@ Fetched 4 record(s) in 2ms
 
 ## Update - alteração
 
-### 1. Adicione para todos os projetos o campo `views: 0`.
+#### 1. Adicione para todos os projetos o campo `views: 0`.
 
 ```js
 localhost(mongod-2.6.11) project> db.projects.update({}, {$set: { views: 0 } },{multi: 1})
@@ -385,10 +385,10 @@ WriteResult({
 })
 ```
 
-### 2. Adicione 1 tag diferente para cada projeto.
-### 3. Adicione 2 membros diferentes para cada projeto.
-### 4. Adicione 1 comentário em cada atividade, deixe apenas 1 projeto sem.
-### 5. Adicione 1 projeto inteiro com **UPSERT**.
+#### 2. Adicione 1 tag diferente para cada projeto.
+#### 3. Adicione 2 membros diferentes para cada projeto.
+#### 4. Adicione 1 comentário em cada atividade, deixe apenas 1 projeto sem.
+#### 5. Adicione 1 projeto inteiro com **UPSERT**.
 
 ## Delete - remoção
 
