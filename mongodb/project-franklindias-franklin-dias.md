@@ -214,7 +214,6 @@ localhost(mongod-2.6.11) project> users
 
 ```
 
-
 #### 2. Liste todos os projetos com a tag que você escolheu para os 3 projetos em comum.
 
 ```js
@@ -386,9 +385,100 @@ WriteResult({
 ```
 
 #### 2. Adicione 1 tag diferente para cada projeto.
+
+```js
+localhost(mongod-2.6.11) project> for(var i=1; i<=5; i++){db.projects.update({"name": "Projeto " + i}, {$push: {"project_tags": "tag"+i}});  i++; }
+Updated 1 existing record(s) in 1ms
+Updated 1 existing record(s) in 0ms
+Updated 1 existing record(s) in 2ms
+5
+```
+
 #### 3. Adicione 2 membros diferentes para cada projeto.
+
+```js
+localhost(mongod-2.6.11) project> var query = {"name": "Projeto 1"} 
+localhost(mongod-2.6.11) project> var mod = {$push: {"project_members": [
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f3"),"notify":false},
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f4"),"notify":false}
+... ]}}
+localhost(mongod-2.6.11) project> db.projects.update(query, mod) 
+Updated 1 existing record(s) in 1ms
+WriteResult({
+  "nMatched": 1,
+  "nUpserted": 0,
+  "nModified": 1
+})
+
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var query = {"name": "Projeto 2"} 
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var mod = {$push: {"project_members": [
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f3"),"notify":false},
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f2"),"notify":false}
+... ]}}  
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> db.projects.update(query, mod)  
+Updated 1 existing record(s) in 30ms
+WriteResult({
+  "nMatched": 1,
+  "nUpserted": 0,
+  "nModified": 1
+})
+
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var query = {"name": "Projeto 3"} 
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var mod = {$push: {"project_members": [
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f2"),"notify":false},
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f1"),"notify":false}
+... ]}}  
+localhost(mongod-2.6.11) project> db.projects.update(query, mod)  
+Updated 1 existing record(s) in 1ms
+WriteResult({
+  "nMatched": 1,
+  "nUpserted": 0,
+  "nModified": 1
+})
+
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var query = {"name": "Projeto 4"} 
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var mod = {$push: {"project_members": [
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f1"),"notify":false},
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3f0"),"notify":false}
+... ]}} 
+localhost(mongod-2.6.11) project> db.projects.update(query, mod)  
+Updated 1 existing record(s) in 1ms
+WriteResult({
+  "nMatched": 1,
+  "nUpserted": 0,
+  "nModified": 1
+})
+
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var query = {"name": "Projeto 5"} 
+localhost(mongod-2.6.11) project> 
+localhost(mongod-2.6.11) project> var mod = {$push: {"project_members": [
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3ef"),"notify":false},
+...     {"type":"member","user": ObjectId("567dc0d33035895fd8c5c3ee"),"notify":false}
+... ]}}  
+localhost(mongod-2.6.11) project> db.projects.update(query, mod)  
+Updated 1 existing record(s) in 1ms
+WriteResult({
+  "nMatched": 1,
+  "nUpserted": 0,
+  "nModified": 1
+})
+```
+
 #### 4. Adicione 1 comentário em cada atividade, deixe apenas 1 projeto sem.
+
+
+
 #### 5. Adicione 1 projeto inteiro com **UPSERT**.
+
+
 
 ## Delete - remoção
 
