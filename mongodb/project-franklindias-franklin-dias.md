@@ -115,12 +115,269 @@ connected to: 127.0.0.1
 
 ## Retrieve - busca
 
-1. Liste as informações dos membros de 1 projeto específico que deve ser buscado pelo seu nome de forma a não ligar para maiúsculas e minúsculas.
-2. Liste todos os projetos com a tag que você escolheu para os 3 projetos em comum.
-3. Liste apenas os nomes de todas as atividades para todos os projetos.
-4. Liste todos os projetos que não possuam uma tag.
-5. Liste todos os usuários que não fazem parte do primeiro projeto cadastrado.
+> 1. Liste as informações dos membros de 1 projeto específico que deve ser buscado pelo seu nome de forma a não ligar para maiúsculas e minúsculas.
 
+Criando o filtro para selecionar o projeto.
+```js
+localhost(mongod-2.6.11) project> var filter = {name: /projeto 3/i }
+```
+
+Instanciando array para utilização futura, caso contrário daria erro no momento de chamar a função 'push' na função a seguir.
+```js
+localhost(mongod-2.6.11) project> var users = [];
+```
+
+Varrendo o campo 'project_members' do objeto buscado, e em seguida varrendo o array resultante da consulta e inserindo os respectivos usuários no array members. 
+```js
+db.projects.findOne(filter, { "project_members.user":1, "_id":0}).project_members.forEach(function(member) {
+    users.push(db.users.findOne({"_id":member.user}))
+});
+```
+
+Listando os membros do 'Projeto 3'
+```js
+localhost(mongod-2.6.11) project> users
+[
+  {
+    "_id": ObjectId("567dc0d33035895fd8c5c3ec"),
+    "name": "José Costa",
+    "bio": "bio de jose",
+    "email": "jose@email.com",
+    "date_register": ISODate("2015-12-25T21:16:44.716Z"),
+    "avatar_path": "",
+    "auth": {
+      "username": "josecosta",
+      "password": "123",
+      "last_access": ISODate("2015-12-25T21:16:44.716Z"),
+      "online": false,
+      "disable": false,
+      "hash_token": "202cb962ac523654964b07152d234b70"
+    }
+  },
+  {
+    "_id": ObjectId("567dc0d33035895fd8c5c3ed"),
+    "name": "Maria Clara",
+    "bio": "bio de maria",
+    "email": "maria@email.com",
+    "date_register": ISODate("2015-12-25T21:16:44.716Z"),
+    "avatar_path": "",
+    "auth": {
+      "username": "mariaclara",
+      "password": "123",
+      "last_access": ISODate("2015-12-25T21:16:44.716Z"),
+      "online": false,
+      "disable": false,
+      "hash_token": "202cb962ac59075b964b07152d234b70"
+    }
+  },
+  {
+    "_id": ObjectId("567dc0d33035895fd8c5c3ee"),
+    "name": "Francisco Pereira",
+    "bio": "bio de francisco",
+    "email": "francisco@email.com",
+    "date_register": ISODate("2015-12-25T21:16:44.716Z"),
+    "avatar_path": "",
+    "auth": {
+      "username": "franciscopereira",
+      "password": "123",
+      "last_access": ISODate("2015-12-25T21:16:44.716Z"),
+      "online": false,
+      "disable": false,
+      "hash_token": "202cb9612c1a075b964b07152d234b70"
+    }
+  },
+  {
+    "_id": ObjectId("567dc0d33035895fd8c5c3ef"),
+    "name": "Gilberto Lima",
+    "bio": "bio de gilberto",
+    "email": "gilbertolima@email.com",
+    "date_register": ISODate("2015-12-25T21:16:44.716Z"),
+    "avatar_path": "",
+    "auth": {
+      "username": "gilmerto",
+      "password": "123",
+      "last_access": ISODate("2015-12-25T21:16:44.716Z"),
+      "online": false,
+      "disable": false,
+      "hash_token": "202cb962ac5s1e75b964b07152d234b70"
+    }
+  },
+  {
+    "_id": ObjectId("567dc0d33035895fd8c5c3f0"),
+    "name": "Luciana",
+    "bio": "bio de luciana",
+    "email": "luci@gmail.com",
+    "date_register": ISODate("2015-12-25T21:16:44.716Z"),
+    "avatar_path": "",
+    "auth": {
+      "username": "luci",
+      "password": "123",
+      "last_access": ISODate("2015-12-25T21:16:44.716Z"),
+      "online": false,
+      "disable": false,
+      "hash_token": "202cb1f1ac59075b964b07152d234b70"
+    }
+  }
+]
+
+```
+
+
+> 2. Liste todos os projetos com a tag que você escolheu para os 3 projetos em comum.
+
+```js
+localhost(mongod-2.6.11) project> db.projects.find({project_tags: {$in: [/node/i]}}, {name: 1})
+{
+  "_id": ObjectId("567de0103035895fd8c5c3ff"),
+  "name": "Projeto 1"
+}
+{
+  "_id": ObjectId("567de0103035895fd8c5c400"),
+  "name": "Projeto 2"
+}
+{
+  "_id": ObjectId("567de0103035895fd8c5c401"),
+  "name": "Projeto 3"
+}
+Fetched 3 record(s) in 3ms
+
+```
+
+> 3. Liste apenas os nomes de todas as atividades para todos os projetos.
+
+```js
+localhost(mongod-2.6.11) project> db.activities.find({}, {name:1, _id:0})
+{
+  "name": "Activitie 1"
+}
+{
+  "name": "Activitie 2"
+}
+{
+  "name": "Activitie 3"
+}
+{
+  "name": "Activitie 4"
+}
+{
+  "name": "Activitie 5"
+}
+{
+  "name": "Activitie 6"
+}
+{
+  "name": "Activitie 7"
+}
+{
+  "name": "Activitie 8"
+}
+{
+  "name": "Activitie 9"
+}
+{
+  "name": "Activitie 10"
+}
+
+```
+
+> 4. Liste todos os projetos que não possuam uma tag.
+
+```js
+db.projects.find({project_tags: {$size: 0}}) 
+Fetched 0 record(s) in 1ms
+```
+
+> 5. Liste todos os usuários que não fazem parte do primeiro projeto cadastrado.
+
+```js
+localhost(mongod-2.6.11) project> db.projects.find({}, {'name':1,'project_members.user': 1}).skip(1)
+{
+  "_id": ObjectId("567de0103035895fd8c5c400"),
+  "name": "Projeto 2",
+  "project_members": [
+    {
+      "user": ObjectId("567dbff3c2289ba833ee8741")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ec")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ed")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ee")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ef")
+    }
+  ]
+}
+{
+  "_id": ObjectId("567de0103035895fd8c5c401"),
+  "name": "Projeto 3",
+  "project_members": [
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ec")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ed")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ee")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ef")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3f0")
+    }
+  ]
+}
+{
+  "_id": ObjectId("567de0103035895fd8c5c402"),
+  "name": "Projeto 4",
+  "project_members": [
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ed")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ee")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ef")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3f0")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3f1")
+    }
+  ]
+}
+{
+  "_id": ObjectId("567deb9d3086e408cf4a2fe0"),
+  "name": "Projeto 5",
+  "project_members": [
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ee")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3ef")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3f1")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3f3")
+    },
+    {
+      "user": ObjectId("567dc0d33035895fd8c5c3f4")
+    }
+  ]
+}
+Fetched 4 record(s) in 2ms
+
+```
 
 ## Update - alteração
 

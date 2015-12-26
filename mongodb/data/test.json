@@ -1,0 +1,6 @@
+var filter = {name: /projeto 3/i }
+var user = []
+
+db.projects.findOne(filter, { "project_members.user":1, "_id":0}).project_members.forEach(function(member) {
+    user.push(db.users.findOne({"_id":member.user}))
+});
