@@ -105,14 +105,6 @@ connected to: 127.0.0.1
 
 ```
 
-    - cada um com 5 membros, sempre diferentes dentro dos projetos;
-    - cada um com pelo menos 3 tags diferentes;
-        - escolha 1 *tag* onde deva ficar em 2 projetos;
-        - escolha 1 *tag* onde deva ficar em 3 projetos;
-    - cada projeto com pelo menos 1 *goal*;
-        - cada *goal* com pelo menos 3 *tags*;
-        - cada *goal* com pelo menos 2 atividades, deixe 1 projeto sem.
-
 ## Retrieve - busca
 
 > 1. Liste as informações dos membros de 1 projeto específico que deve ser buscado pelo seu nome de forma a não ligar para maiúsculas e minúsculas.
@@ -127,7 +119,7 @@ Instanciando array para utilização futura, caso contrário daria erro no momen
 localhost(mongod-2.6.11) project> var users = [];
 ```
 
-Varrendo o campo 'project_members' do objeto buscado, e em seguida varrendo o array resultante da consulta e inserindo os respectivos usuários no array members. 
+Varrendo o campo 'project_members' do objeto buscado, e em seguida varrendo o array resultante da consulta e inserindo os respectivos usuários no array users. 
 ```js
 db.projects.findOne(filter, { "project_members.user":1, "_id":0}).project_members.forEach(function(member) {
     users.push(db.users.findOne({"_id":member.user}))
