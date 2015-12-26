@@ -86,7 +86,7 @@ connected to: 127.0.0.1
 
 > 2 - Cadastre 5 projetos diferentes.
 
-Para facilitar a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades [activities_insert.json](https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/activities_insert.json).
+Para facilitar, didaticamente, a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades [activities_insert.json](https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/activities_insert.json).
 
 
 ```js
@@ -96,6 +96,14 @@ connected to: 127.0.0.1
 ```
 
 Em seguida, criei um arquivo json com todos os projetos, 'relacionando' seus respectivos usuários e atividades já cadastradas: [projects_insert.json] (https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/projects_insert.json).
+
+
+```js
+mongoimport --db project --collection projects --file data/projects_insert.json 
+connected to: 127.0.0.1
+2015-12-25T22:32:16.830-0200 imported 5 objects
+
+```
 
     - cada um com 5 membros, sempre diferentes dentro dos projetos;
     - cada um com pelo menos 3 tags diferentes;
