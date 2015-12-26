@@ -20,7 +20,7 @@ Bancos de dados não relacionais em geral podem ser utilizados pra qualquer tipo
 
 ## Create - cadastro
 
-#### 1 - Cadastre 10 usuários diferentes.
+#### 1. Cadastre 10 usuários diferentes.
 
 Inserindo um usuário manualmente:
 
@@ -84,7 +84,7 @@ connected to: 127.0.0.1
 2015-12-25T20:18:59.199-0200 imported 9 objects
 ```
 
-#### 2 - Cadastre 5 projetos diferentes.
+#### 2. Cadastre 5 projetos diferentes.
 
 Para facilitar, didaticamente, a inserção dos objetos, inseri inicialmente as 'activities' e em seguida inseri os projetos com suas respectivas 'atividades', considerando que cada projeto terá 2 atividades [activities_insert.json](https://github.com/franklindias/be-mean-instagram-projects/blob/master/mongodb/data/activities_insert.json).
 
@@ -392,11 +392,11 @@ WriteResult({
 
 ## Delete - remoção
 
-1. Apague todos os projetos que não possuam *tags*.
-2. Apague todos os projetos que não possuam comentários nas atividades.
-3. Apague todos os projetos que não possuam atividades.
-4. Escolha 2 usuário e apague todos os projetos em que os 2 fazem parte.
-5. Apague todos os projetos que possuam uma determinada *tag* em *goal*.
+#### 1. Apague todos os projetos que não possuam *tags*.
+#### 2. Apague todos os projetos que não possuam comentários nas atividades.
+#### 3. Apague todos os projetos que não possuam atividades.
+#### 4. Escolha 2 usuário e apague todos os projetos em que os 2 fazem parte.
+#### 5. Apague todos os projetos que possuam uma determinada *tag* em *goal*.
 
 ## Sharding
 // coloque aqui todos os comandos que você executou
